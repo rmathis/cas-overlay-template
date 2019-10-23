@@ -1,0 +1,111 @@
+/* Root / Reset */
+
+:root {
+    --mdc-theme-primary: #153e50;
+}
+
+.atlassian {
+    --mdc-theme-primary: #0747a6;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Layout */
+
+.container {
+    width: 1200px;
+}
+
+.container-fluid {
+    width: 100%;
+}
+
+@media (max-width: 575.98px) {
+    
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .container {
+        width: 800px;
+    }
+}
+
+@media (max-width: 1199.98px) {}
+
+/* Material */
+
+.mdc-drawer {
+    top: 56px;
+}
+
+.mdc-drawer-app-content {
+    flex: auto;
+    overflow: auto;
+    position: relative;
+}
+
+.main-content {
+    display: flex;
+}
+
+.mdc-top-app-bar {
+    z-index: 7;
+}
+
+.mdc-top-app-bar__title {
+    align-self: center;
+}
+
+/* widgets */
+
+.notifications-count {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+
+    background-color: rgba(212, 19, 13, 1);
+    color: #fff;
+    border-radius: 50%;
+    padding: 1px 3px;
+    font: 8px Verdana;
+}
+
+
+
+/* utilities */
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+/* legacy */
+
+#serviceui.alert {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+#duo_iframe {
+    width: 100%;
+    min-width: 304px;
+    height: 330px;
+    border: none;
+    padding: 0 20px;
+}
