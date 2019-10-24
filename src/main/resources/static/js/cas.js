@@ -2,9 +2,10 @@
     console.log(material);
     var cas = {
         init: function () {
+            material.autoInit();
             var drawer = cas.attachDrawer();
             cas.attachTopbar(drawer);
-            // material.autoInit();
+            cas.attachFields();
         },
         attachDrawer: function () {
             var drawer = material.drawer.MDCDrawer.attachTo(document.getElementById('app-drawer'));
@@ -30,6 +31,27 @@
                 drawer.open = !drawer.open;
             });
             return topAppBar;
+        },
+
+        attachFields: function () {
+            var divs = document.querySelectorAll('.mdc-text-field'),
+                field;
+            divs.forEach(function (div) {
+                field = material.textField.MDCTextField.attachTo(div);
+                if (div.classList.contains('caps-check')) {
+                    console.log(field);
+                    field.foundation_.adapter_.registerInputInteractionHandler('keypress', cas.checkCaps);
+                }
+            });
+        },
+        checkCaps: function (ev) {
+            var s = String.fromCharCode(ev.which);
+            if (s.toUpperCase() === s && s.toLowerCase() !== s && !ev.shiftKey) {
+                ev.target.parentElement.classList.add('caps-on');
+            } else {
+                console.log('caps off')
+                ev.target.parentElement.classList.remove('caps-on');
+            }
         },
         attachDrawerToggle: function () {
 
@@ -128,19 +150,10 @@ function resourceLoadedSuccessfully() {
 
         preserveAnchorTagOnForm();
         preventFormResubmission();
-
-        $('#capslock-on').hide();
         $('#fm1 input[name="username"],[name="password"]').trigger('input');
         $('#fm1 input[name="username"]').focus();
 
-        $('#password').keypress(function (e) {
-            var s = String.fromCharCode(e.which);
-            if (s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey) {
-                $('#capslock-on').show();
-            } else {
-                $('#capslock-on').hide();
-            }
-        });
+        
         if (typeof (jqueryReady) == 'function') {
             jqueryReady();
         }

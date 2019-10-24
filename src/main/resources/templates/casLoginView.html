@@ -10,26 +10,25 @@
 
 </head>
 
-<body class="login">
+<body class="login mdc-typography">
     <main role="main">
-        <div layout:fragment="content" class="d-flex justify-content-center">
-            <div id="loginForm" class="login-form">
-                <!--th:if="${@casThymeleafLoginFormDirector.isLoginFormViewable(#vars)}"-->
+        <div layout:fragment="content" class="d-flex justify-content-center flex-fill">
+            <section id="loginForm" class="login-section login-form flex-1" th:if="${@casThymeleafLoginFormDirector.isLoginFormViewable(#vars)}">
                 <div th:replace="fragments/loginform :: loginform">
                     <a href="fragments/loginform.html">Login Form goes here</a>
                 </div>
-            </div>
-            <div id="providers" class="login-providers">
+            </section>
+            <section id="providers" class="login-section login-providers flex-1">
                 <div th:replace="fragments/loginProviders :: loginProviders">
                     <a href="fragments/loginProviders.html">loginProviders</a>
                 </div>
-            </div>
+            </section>
 
-            <div id="acceptto" class="col" th:if="${accepttoApplicationId}">
+            <section id="acceptto" class="login-section login-qr flex-1" th:if="${accepttoApplicationId}">
                 <div th:replace="fragments/accepttoQRCode :: accepttoQRCode">
                     <a href="fragments/accepttoQRCode.html">accepttoQRCode</a>
                 </div>
-            </div>
+            </section>
         </div>
     </main>
 </body>
