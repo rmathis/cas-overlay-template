@@ -2,44 +2,15 @@
     console.log(material);
     var cas = {
         init: function () {
-            material.autoInit();
-            var drawer = cas.attachDrawer();
-            cas.attachTopbar(drawer);
             cas.attachFields();
+            material.autoInit();
         },
-        attachDrawer: function () {
-            var drawer = material.drawer.MDCDrawer.attachTo(document.getElementById('app-drawer'));
-            var closeDrawer = function (evt) {
-                drawer.open = false;
-            };
-            drawer.foundation_.handleScrimClick = closeDrawer;
-            document.onkeydown = function (evt) {
-                evt = evt || window.event;
-                if (evt.keyCode == 27) {
-                    closeDrawer();
-                }
-            };
-
-            cas.drawer = drawer;
-
-            return drawer;
-        },
-        attachTopbar: function (drawer) {
-            var topAppBar = material.topAppBar.MDCTopAppBar.attachTo(document.getElementById('app-bar'));
-            topAppBar.setScrollTarget(document.getElementById('main-content'));
-            topAppBar.listen('MDCTopAppBar:nav', function () {
-                drawer.open = !drawer.open;
-            });
-            return topAppBar;
-        },
-
         attachFields: function () {
             var divs = document.querySelectorAll('.mdc-text-field'),
                 field;
             divs.forEach(function (div) {
                 field = material.textField.MDCTextField.attachTo(div);
                 if (div.classList.contains('caps-check')) {
-                    console.log(field);
                     field.foundation_.adapter_.registerInputInteractionHandler('keypress', cas.checkCaps);
                 }
             });
@@ -52,12 +23,6 @@
                 console.log('caps off')
                 ev.target.parentElement.classList.remove('caps-on');
             }
-        },
-        attachDrawerToggle: function () {
-
-        },
-        attachNotificationMenu: function () {
-            
         }
     }
 
