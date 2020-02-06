@@ -43,6 +43,10 @@ apply from: rootProject.file("gradle/springboot.gradle")
 apply from: rootProject.file("gradle/dockerjib.gradle")
 
 dependencies {
+    compile "org.apereo.cas:cas-server-support-json-service-registry:${project.'cas.version'}"
+    compile "org.apereo.cas:cas-server-support-pac4j-webflow:${project.'cas.version'}"
+    // implementation "org.apereo.cas:cas-server-support-acceptto-mfa:${project.'cas.version'}"
+    implementation "org.apereo.cas:cas-server-support-pm-webflow:${project.'cas.version'}"
     // Other CAS dependencies/modules may be listed here...
     // compile "org.apereo.cas:cas-server-support-json-service-registry:${casServerVersion}"
 }

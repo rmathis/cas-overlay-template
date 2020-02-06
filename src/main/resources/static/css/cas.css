@@ -62,6 +62,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
+    background: #EFEFEF;
 }
 
 a {
@@ -254,6 +255,10 @@ button.close {
 
 .mdi:before {
     font-size: 24px;
+}
+
+.mdc-card-content {
+    padding: 16px;
 }
 
 /* utilities */
