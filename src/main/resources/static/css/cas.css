@@ -35,7 +35,9 @@
     --cas-theme-primary: #153e50;
     --cas-theme-primary-light: #006d85;
     --cas-theme-secondary: #74C163;
-    --cas-theme-danger: #dc3545;
+    --cas-theme-success: var(--cas-theme-secondary);
+    --cas-theme-danger: var(--mdc-theme-error);
+    --cas-theme-warning: #e6a210;
     --cas-theme-border-light: 1px solid rgba(0, 0, 0, .2);
 
     --cas-theme-twitter-color: #55acee;
@@ -138,9 +140,8 @@ header > nav .cas-brand .cas-logo {
 .login-section {
     padding: var(--cas-theme-gutter-4);
     border-right: var(--cas-theme-border-light);
+    padding: 2rem 2.5rem;
     flex: 1;
-    max-width: 50%;
-    padding: 0 2.5rem;
 }
 
 .login-section:last-child {
@@ -197,12 +198,27 @@ button.close {
 
 .banner-primary {
     border-color: var(--cas-theme-primary);
+}
+
+.banner-primary .mdi {
     color: var(--cas-theme-primary);
 }
 
 .banner-danger {
     border-color: var(--cas-theme-danger);
+}
+
+.banner-danger .mdi {
     color: var(--cas-theme-danger);
+}
+
+.banner-warning {
+    border-color: var(--cas-theme-warning);
+    color: var(--cas-theme-warning);
+}
+
+.banner-warning .mdi {
+    color: var(--cas-theme-warning);
 }
 
 .banner-dismissible {
@@ -257,11 +273,35 @@ button.close {
     font-size: 24px;
 }
 
-.mdc-card-content {
-    padding: 16px;
+/* utilities */
+
+.text-warning {
+    color: var(--cas-theme-warning);
 }
 
-/* utilities */
+.text-danger {
+    color: var(--cas-theme-danger);
+}
+
+.text-secondary, .text-success {
+    color: var(--cas-theme-secondary);
+}
+
+.progress-bar-danger .mdc-linear-progress__bar-inner {
+    border-color: var(--cas-theme-danger);
+}
+
+.progress-bar-warning .mdc-linear-progress__bar-inner {
+    border-color: var(--cas-theme-warning);
+}
+
+.progress-bar-success .mdc-linear-progress__bar-inner {
+    border-color: var(--cas-theme-success);
+}
+
+.word-break-all {
+    word-break: break-all;
+}
 
 .text-danger,
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon.text-danger,
@@ -376,6 +416,35 @@ button.close {
 
 .vh-100 {
   height: 100vh;
+}
+
+.mw-50 {
+    max-width: 50%;
+}
+
+@media screen and (min-width: 768px) {
+    .w-md-100 {
+        width: 100%;
+    }
+    .w-md-50 {
+        width: 50%;
+    }
+    .w-md-66 {
+        width: 66%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .w-lg-100 {
+        width: 100%;
+    }
+    .w-lg-50 {
+        width: 50%;
+    }
+
+    .w-lg-66 {
+        width: 66%;
+    }
 }
 
 .sr-only {
